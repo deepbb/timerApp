@@ -1,0 +1,17 @@
+// Plugin management configuration
+pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+plugins { id("com.facebook.react.settings") }
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    ex.autolinkLibrariesFromCommand()
+}
+
+// Project name
+rootProject.name = 'VoiceRecorder'
+
+// Includes
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Add react-native-audio-recorder-player
+include ':react-native-audio-recorder-player'
+project(':react-native-audio-recorder-player').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audio-recorder-player/android')
